@@ -24,7 +24,7 @@ export default function ExperienceSection({ experience = [] }: { experience?: Ex
             </span>
 
             <p className="mt-2 text-sm opacity-80">
-                Here's my professional journey so far.
+                Here&apos;s my professional journey so far.
             </p>
 
             <div className="mt-5 grid gap-6 md:grid-cols-[240px_1fr]">

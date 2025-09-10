@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { ProfileContent, SiteData } from "@/lib/types";
+import type { GithubRepoList, ProfileContent, SiteData } from "@/lib/types";
 
 const dataDir = (...p: string[]) => path.join(process.cwd(), "content", ...p);
 
@@ -23,5 +23,5 @@ export async function getRepos(username: string) {
 		},
 	});
 	if (!res.ok) throw new Error("Failed to fetch repos");
-	return (await res.json()) as Array<any>;
+	return (await res.json()) as GithubRepoList;
 }

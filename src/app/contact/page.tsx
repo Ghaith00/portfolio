@@ -12,10 +12,10 @@ export default function ContactPage() {
 			<section className="grid md:grid-cols-2 gap-10 items-start">
 				<div>
 					<h1 className="text-3xl md:text-5xl font-bold leading-tight">
-						Let’s discuss your Project
+						Let&apos;s discuss your Project
 					</h1>
 					<p className="mt-4 text-base md:text-lg opacity-80 leading-relaxed">
-						I'm available for freelance work. Drop me a line if you have a project you think I'd be a good fit for.
+						I&apos;m available for freelance work. Drop me a line if you have a project you think I&apos;d be a good fit for.
 					</p>
 					<div className=" justify-between items-center">
 						<div className="max-w-84 pt-4 flex xs:not-odd:my-3 rounded">

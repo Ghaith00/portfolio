@@ -2,7 +2,7 @@ import Image from "next/image";
 import ExperienceSection from "@/components/Home/ExperienceSection";
 import SkillsSection from "@/components/Home/SkillsSection";
 import EducationSection from "@/components/Home/EducationSection";
-import { getSite, getProfileContent } from "@/lib/data";
+import { getProfileContent } from "@/lib/data";
 import { SiteData } from "@/lib/types";
 
 
