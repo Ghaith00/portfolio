@@ -1,0 +1,42 @@
+@import "highlight.js/styles/github-dark.css";
+/* Container + type scale */
+.prose {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 90vw;
+  line-height: 1.7;
+}
+@media (min-width: 640px) {
+  .prose { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+@media (min-width: 768px) {
+  .prose { font-size: 1rem; max-width: 65ch; }
+}
+@media (min-width: 1024px) {
+  .prose { font-size: 1.125rem; max-width: 75ch; }
+}
+@media (min-width: 1280px) {
+  .prose { font-size: 1.2rem; max-width: 80ch; }
+}
+
+/* Images */
+.prose img { width: 100%; height: auto; border-radius: 0.75rem; margin: 1rem 0; }
+
+/* Tables (scroll on small screens) */
+.prose table { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; }
+.prose th, .prose td { white-space: nowrap; }
+
+/* Code blocks */
+.prose pre { overflow-x: auto; border-radius: 0.5rem; }
+.prose code { word-break: break-word; }
+.prose pre code.hljs { background: transparent; }
+
+/* Iframes/embeds */
+.prose iframe { width: 100%; aspect-ratio: 16/9; height: auto; }
+
+/* Dark mode (class-based) */
+.dark .prose { color-scheme: dark; }
+/* Optional: tune colors if not using the Typography plugin’s invert styles */
+
