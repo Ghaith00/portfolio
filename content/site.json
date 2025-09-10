@@ -1,0 +1,41 @@
+{
+	"name": "Your Site",
+	"tagline": "A generic starter tagline.",
+	"nav": [
+		{
+			"label": "Home",
+			"href": "/"
+		},
+		{
+			"label": "Blog",
+			"href": "/blog"
+		},
+		{
+			"label": "Projects",
+			"href": "/projects"
+		},
+		{
+			"label": "Contact Me",
+			"href": "/contact",
+			"isHighlighted": true
+		}
+	],
+	"resume": "/resume.pdf",
+	"socials": {
+		"x": "#",
+		"github": "#",
+		"linkedin": "#"
+	},
+	"footerLinks": [
+		{
+			"label": "Privacy",
+			"href": "/privacy"
+		},
+		{
+			"label": "Terms",
+			"href": "/terms"
+		}
+	],
+	"address": "Paris, France",
+	"email": "contact@gmail.com"
+}

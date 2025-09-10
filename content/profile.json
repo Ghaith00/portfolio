@@ -1,0 +1,233 @@
+{
+    "hero": {
+        "title": "Hi! I'm Ghaith",
+        "position": "Software Engineer · Full‑stack (TypeScript, React, Node)",
+        "description": "I design and ship reliable web apps from roadmap to release: typed APIs, accessible UIs, and robust CI.",
+        "buttons": [
+            {
+                "label": "View Projects",
+                "href": "/projects"
+            },
+            {
+                "label": "Get in touch",
+                "href": "/contact"
+            }
+        ],
+        "image": {
+            "alt": "Ghaith Tabib portrait",
+            "src": "/ghaith.jpg"
+        }
+    },
+    "experience": [
+        {
+            "company": "Meta-coaching",
+            "logo": "/companies/metacoaching.jpeg",
+            "role": "Software Engineer",
+            "range": "Apr 2023 — Mar 2025 · Paris, France",
+            "details": [
+                "Prioritization management and support to the Product Owner in defining technical specifications and roadmaps",
+                "Maintenance of the existing technical stack and management of associated technical aspects",
+                "Implementation of end-to-end tests for nine therapy programs",
+                "Creation of a back-office content preview feature to facilitate integrators’ work",
+                "Enrichment of the vocabulary of calculators to interpret formulas and conditions entered by integrators",
+                "Integration of data from connected objects (Fitbit andWithings) to simplify health record completion (physical activity, weight, sleep) and enhance the statistics page",
+                "Configuration ofWebpack and Kubernetes for three projects to enable hot reload, facilitate debugging, and migrate to TypeScript",
+                "Development of a React library with Storybook and gradual replacement of legacy components with new ones",
+                "Design and implementation of the backend following the DDD paradigm, with the establishment of an application proxy enabling interaction between the legacy backend and the new one",
+                "Migration of a portion of the data managing the user journeys and states to MongoDB",
+                "Stack: React 16, React 18, Storybook, NodeJS, NestJS, Typescript, Mocha, Chai, MariaDB, MongoDb, Redis, Cypress, Kubernetes, Docker, Docker-compose"
+            ],
+            "stack": [
+                "React 16",
+                "React 18",
+                "Storybook",
+                "NodeJS",
+                "NestJS",
+                "Typescript",
+                "Mocha",
+                "Chai",
+                "MariaDB",
+                "MongoDb",
+                "Redis",
+                "Cypress",
+                "Kubernetes",
+                "Docker",
+                "Docker-compose"
+            ]
+        },
+        {
+            "company": "Carrefour",
+            "logo": "/companies/carrefour.png",
+            "role": "Full-stack Engineer",
+            "range": "Feb 2020 — Feb 2023 · Massy, France",
+            "details": [
+                "Analyzing customer needs and designing a technical solution",
+                "Developed custom API layer to handle all CRUD transactions",
+                "Create a management module for backend settings such as entity connections, Google service accounts, repositories, logging, and operations reporting",
+                "Create a module for Google Shared Drive reporting",
+                "Create a management module for Google groups and automate user assignment",
+                "Create a module for orders of internal devices, their management and allocation in stocks",
+                "Work on multiple batches that handles LDAP user info and the allocation of shared contacts",
+                "Built custom components for UX-Library consisting Accordion, Filters, Dropdown, Carousel, Button, Checkbox, Input, Icons",
+                "Exclusively used React-Hooks to handle application life-cycle processes",
+                "Work on the responsiveness of the current frontend and make it more standardized"
+            ],
+            "stack": [
+                "Typescript",
+                "GraphQL",
+                "Apollo",
+                "Moleculer",
+                "React",
+                "Redux-Saga",
+                "NodeJS",
+                "Material UI",
+                "ExpressJS",
+                "React Testing Library",
+                "Redis",
+                "PostgreSQL",
+                "TypeORM",
+                "Docker",
+                "Docker-compose",
+                "Jira",
+                "Jenkins"
+            ]
+        },
+        {
+            "company": "Hannilab",
+            "logo": "/companies/hannilab.png",
+            "role": "Software Engineer",
+            "range": "Feb 2018 – Jan 2020 · Tunis, Tunisia",
+            "details": [
+                "Modified existing solution to correct errors, upgrade the code, and improve performance.",
+                "Collaborated closely with other team members to plan, design, and develop new features.",
+                "Designed reusable UI components in React and integrating Mobx.",
+                "Stack: Flask, Celery, RabbitMQ, SQLAlchemy, React, Mobx, Reactstrap, React Router, Webpack, Babel",
+                "Refactoring and improving backend by following best practices",
+                "Designing and developing the frontend website",
+                "Deploy and configure a CI pipeline with Build notification"
+            ],
+            "stack": [
+                "NodeJS",
+                "Python",
+                "Flask",
+                "Celery",
+                "RabbitMQ",
+                "SQLAlchemy",
+                "ExpressJS",
+                "React",
+                "Redux",
+                "Redux Thunk",
+                "TypeORM",
+                "Google APIs",
+                "AWS",
+                "Jenkins"
+            ]
+        },
+        {
+            "company": "Certishopping",
+            "logo": "/companies/certishopping.png",
+            "role": "CMS/CRM Developer",
+            "range": "July 2017 – Sep 2017 · Tunis, Tunisia",
+            "details": [
+                "Coordinate the design and implementation with the co-founder of a Prestashop module that integrates reviews and send mail notification.",
+                "Experienced multiple iterations during design implementation"
+            ],
+            "stack": [
+                "Prestashop",
+                "Smarty",
+                "Graph API"
+            ]
+        }
+    ],
+    "skills": [
+        {
+            "title": "Programming Languages",
+            "color": "text-indigo-600 dark:text-indigo-400",
+            "icon": "FaCode",
+            "items": [
+                "JavaScript (ES6)",
+                "TypeScript",
+                "Python",
+                "PHP",
+                "Shell"
+            ]
+        },
+        {
+            "title": "Web Development",
+            "color": "text-pink-600 dark:text-pink-400",
+            "icon": "MdWeb",
+            "items": [
+                "NodeJS",
+                "ExpressJS",
+                "NestJS",
+                "React",
+                "TypeORM",
+                "Redux",
+                "Redux-saga",
+                "GraphQL",
+                "Moleculer"
+            ]
+        },
+        {
+            "title": "Databases & DevOps",
+            "color": "text-emerald-600 dark:text-emerald-400",
+            "icon": "FaDatabase",
+            "items": [
+                "MySQL",
+                "PostgreSQL",
+                "MongoDB",
+                "Redis",
+                "ElasticSearch",
+                "AWS CLI",
+                "EC2",
+                "S3",
+                "Docker",
+                "Jenkins"
+            ]
+        },
+        {
+            "title": "Testing & Build Tools",
+            "color": "text-yellow-600 dark:text-yellow-400",
+            "icon": "FaTools",
+            "items": [
+                "Jest",
+                "Cypress",
+                "React Testing Library",
+                "Chai",
+                "Yarn",
+                "Webpack"
+            ]
+        },
+        {
+            "title": "Collaboration Tools",
+            "color": "text-blue-600 dark:text-blue-400",
+            "icon": "FaUsers",
+            "items": [
+                "Git",
+                "GitHub",
+                "GitLab",
+                "Jira",
+                "Confluence",
+                "Slack"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "school": "Faculty of Sciences of Tunis",
+            "degree": "Diploma in Software Engineering",
+            "range": "2015 – 2018",
+            "location": "Tunis",
+            "logo": "/fst.png",
+            "details": "Completed a comprehensive program in software engineering with a strong focus on distributed systems, databases, algorithms, and software design principles, gaining hands-on experience in full-stack development."
+        },
+        {
+            "school": "Faculty of Sciences of Tunis",
+            "degree": "Pre-engineering Program (Mathematics & Physics)",
+            "range": "2012 – 2015",
+            "location": "Tunis",
+            "logo": "/fst.png",
+            "details": "Followed a rigorous pre-engineering curriculum in mathematics and physics, building a strong foundation in analytical problem-solving and applied sciences."
+        }
+    ]
+}
