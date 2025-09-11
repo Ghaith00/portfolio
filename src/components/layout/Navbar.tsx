@@ -59,7 +59,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <a
-                        href="/resume.pdf"
+                        href={site.resume}
                         target="_blank"
                         className="px-3 py-2 rounded-lg text-sm border border-gray-200 dark:border-gray-200 hover:shadow-sm"
                     >
