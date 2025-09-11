@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { listPosts } from "@/lib/blog";
 import { FaGitAlt } from "react-icons/fa";
+import { listPosts } from "./data";
 
 
 export default async function BlogIndex() {

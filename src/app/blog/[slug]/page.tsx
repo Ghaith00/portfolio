@@ -1,4 +1,4 @@
-import { getPost } from "@/lib/blog";
+import { getPost } from "@/app/blog/data";
 import "./post.css";
 
 

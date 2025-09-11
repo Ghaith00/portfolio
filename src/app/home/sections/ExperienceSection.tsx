@@ -2,7 +2,7 @@
 import { useId, useState, KeyboardEvent } from "react";
 import { FaStarOfLife } from "react-icons/fa";
 import Image from "next/image";
-import { ExperienceContent } from "@/lib/types";
+import { ExperienceContent } from "../types";
 
 
 export default function ExperienceSection({ experience = [] }: { experience?: ExperienceContent[] }) {

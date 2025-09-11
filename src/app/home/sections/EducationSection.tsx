@@ -1,4 +1,4 @@
-import { EducationContent } from "@/lib/types";
+import { EducationContent } from "../types";
 import Image from "next/image";
 import { FaGraduationCap } from "react-icons/fa";
 

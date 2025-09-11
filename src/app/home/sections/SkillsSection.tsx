@@ -1,5 +1,5 @@
 import { CiSettings } from "react-icons/ci"
-import { SkillContent } from "@/lib/types";
+import { SkillContent } from "../types";
 import { Icon } from "@/components/DynamicIcon";
 
 

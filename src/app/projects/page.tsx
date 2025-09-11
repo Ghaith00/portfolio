@@ -1,4 +1,4 @@
-import { getRepos } from "@/lib/data";
+import { getRepos } from "./data";
 import Link from "next/link";
 import { FaGitAlt } from "react-icons/fa";
 
