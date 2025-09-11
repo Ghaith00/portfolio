@@ -54,7 +54,7 @@ export async function POST(req: Request) {
         const transporter = makeTransport();
 
         // Owner notification (uses emails/owner-notice.hbs)
-        transporter.sendMail({
+        await transporter.sendMail({
             from: process.env.CONTACT_FROM || `"Contact" <${process.env.SMTP_USER!}>`,
             to: process.env.CONTACT_TO!,
             subject: `New contact: ${parsed.name}`,
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
         });
 
         // Auto-reply (uses emails/contact-reply.hbs)
-        transporter.sendMail({
+        await transporter.sendMail({
             from: process.env.CONTACT_FROM || `"Contact" <${process.env.SMTP_USER!}>`,
             to: parsed.email,
             subject: "Thanks! Let’s connect",
