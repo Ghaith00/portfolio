@@ -1,0 +1,11 @@
+<tr>
+    <td>
+        <h2 style="margin:0 0 8px 0;">Thanks, {{name}}!</h2>
+        <p style="margin:0 0 12px 0;">I'll get back to you shortly.</p>
+        {{#if calendly}}
+            <p style="margin:0 0 8px 0;">You can also pick a time that works:</p>
+            {{> button href=calendly text="Schedule a call" }}
+            <p style="color:#666;margin:0;">{{calendly}}</p>
+        {{/if}}
+    </td>
+</tr>
