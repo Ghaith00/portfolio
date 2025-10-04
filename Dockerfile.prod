@@ -12,15 +12,11 @@ WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build   # requires output:'standalone' in next.config.js
+RUN npm run build
 
 FROM node:22-alpine AS runtime
 WORKDIR /app
 ENV NODE_ENV=production PORT=3000
-# copy as root, but set ownership to the existing 'node' user
-COPY --chown=node:node --from=builder /app/.next/standalone ./
-COPY --chown=node:node --from=builder /app/public ./public
-COPY --chown=node:node --from=builder /app/.next/static ./.next/static
 USER node
 EXPOSE 3000
-CMD ["node","server.js"]
+CMD ["npm","run", "start"]
