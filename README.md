@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+[![Build Status](https://drone.tools.ghaith-tabib.com/api/badges/Ghaith00/portfolio/status.svg?ref=refs/heads/main)](https://drone.tools.ghaith-tabib.com/Ghaith00/portfolio)
+
 ## Getting Started
 
 First, run the development server:

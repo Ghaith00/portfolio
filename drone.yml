@@ -1,19 +1,27 @@
 kind: pipeline
 type: docker
-name: build-and-deploy
+name: build-push-and-deploy
 
 trigger:
-  branch: [ main ]
-  event:  [ push ]
+  ref:
+    - refs/heads/main
+  event:
+    - push
+    - custom
 
 steps:
-  - name: build-image
-    image: docker:27-cli
-    volumes:
-      - name: dockersock
-        path: /var/run/docker.sock
-    commands:
-      - sudo docker build -f Dockerfile.prod -t ghaith00/portfolio:latest .
+  - name: build-and-push
+    image: plugins/docker
+    settings:
+      repo: ghaith00/portfolio
+      dockerfile: Dockerfile.prod
+      tags:
+        - latest
+        - ${DRONE_COMMIT_SHA}
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
 
   - name: deploy
     image: docker:27-cli
@@ -21,13 +29,14 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
       - name: portfolio_dir
-        path: /home/ubuntu/portfolio          # mount host dir into the step
+        path: /home/ubuntu/portfolio
+    working_dir: /home/ubuntu/portfolio
+    environment:
+      IMAGE_TAG: latest
+      COMPOSE_PROJECT_NAME: portfolio
     commands:
-      - sudo su
-      - cd /home/ubuntu/portfolio
-      - docker compose version
-      - docker compose down || true
-      - docker compose up -d --build
+      - docker compose pull || true
+      - docker compose up -d
       - docker image prune -f || true
 
 volumes:
