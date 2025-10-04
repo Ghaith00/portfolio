@@ -4,13 +4,10 @@ import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import hljs from "highlight.js";
-import { list } from "@vercel/blob";
-import { USE_BLOB } from "@/lib/data";
 import { Frontmatter } from "./types";
 
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
-const BLOG_BLOB_PREFIX = (process.env.BLOG_BLOB_PREFIX || "blog/").replace(/^\/+/, "");
 
 const md = new MarkdownIt({
 	html: true,
@@ -29,35 +26,15 @@ const md = new MarkdownIt({
 }).use(markdownItAnchor, { slugify: s => s.toLowerCase().replace(/\s+/g, "-") });
 
 export async function listPosts() {
-	if (!USE_BLOB) {
-		// Local filesystem
-		await fs.mkdir(BLOG_DIR, { recursive: true });
-		const files = (await fs.readdir(BLOG_DIR)).filter(f => f.endsWith(".md"));
-
-		const posts = await Promise.all(
-			files.map(async (file) => {
-				const raw = await fs.readFile(path.join(BLOG_DIR, file), "utf8");
-				const { data } = matter(raw);
-				const slug = file.replace(/\.md$/, "");
-				return { slug, frontmatter: data as Frontmatter };
-			})
-		);
-
-		return posts.sort((a, b) =>
-			+new Date(b.frontmatter.date || 0) - +new Date(a.frontmatter.date || 0)
-		);
-	}
-
-	// Blob (prod)
-	const { blobs } = await list({ prefix: BLOG_BLOB_PREFIX });
-	const mdBlobs = blobs.filter(b => b.pathname.endsWith(".md"));
+	// Local filesystem
+	await fs.mkdir(BLOG_DIR, { recursive: true });
+	const files = (await fs.readdir(BLOG_DIR)).filter(f => f.endsWith(".md"));
 
 	const posts = await Promise.all(
-		mdBlobs.map(async (b) => {
-			const raw = await fetch(b.url, { cache: "no-store" }).then(r => r.text());
+		files.map(async (file) => {
+			const raw = await fs.readFile(path.join(BLOG_DIR, file), "utf8");
 			const { data } = matter(raw);
-			const filename = b.pathname.slice(BLOG_BLOB_PREFIX.length); // remove prefix
-			const slug = filename.replace(/\.md$/, "");
+			const slug = file.replace(/\.md$/, "");
 			return { slug, frontmatter: data as Frontmatter };
 		})
 	);
@@ -68,21 +45,8 @@ export async function listPosts() {
 }
 
 export async function getPost(slug: string) {
-	if (!USE_BLOB) {
-		// Local filesystem
-		const raw = await fs.readFile(path.join(BLOG_DIR, `${slug}.md`), "utf8");
-		const { data, content } = matter(raw);
-		const html = md.render(content);
-		return { slug, frontmatter: data as Frontmatter, html };
-	}
-
-	// Blob (prod)
-	const urlPath = `${BLOG_BLOB_PREFIX}${slug}.md`;
-	const { blobs } = await list({ prefix: urlPath });
-	const file = blobs.find(b => b.pathname === urlPath);
-	if (!file) throw new Error(`Blob not found: ${urlPath}`);
-
-	const raw = await fetch(file.url, { cache: "no-store" }).then(r => r.text());
+	// Local filesystem
+	const raw = await fs.readFile(path.join(BLOG_DIR, `${slug}.md`), "utf8");
 	const { data, content } = matter(raw);
 	const html = md.render(content);
 	return { slug, frontmatter: data as Frontmatter, html };

@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
-    "@vercel/blob": "^1.1.1",
     "gray-matter": "^4.0.3",
     "handlebars": "^4.7.8",
     "highlight.js": "^11.11.1",

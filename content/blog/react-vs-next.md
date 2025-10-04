@@ -1,10 +1,11 @@
 ---
-title: "React vs Next.js: A Developer’s Guide "
+title: "React vs Next.js: A Developer’s Guide"
 date: "2025-09-03"
 tags: ["react", "nextjs"]
 excerpt: "Kicking off my blog with a tiny Markdown‑powered setup."
 ---
 
+# React vs Next.js: A Developer’s Guide
 
 When building modern web applications, **React** and **Next.js** are two of the most common choices developers encounter. Both are powerful, but they serve slightly different purposes. Understanding where they shine can help you choose the right tool for your next project.  
 

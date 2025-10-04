@@ -1,5 +1,5 @@
 {
-	"name": "Your Site",
+	"name": "Ghaith TABIB",
 	"tagline": "A generic starter tagline.",
 	"nav": [
 		{
@@ -20,11 +20,11 @@
 			"isHighlighted": true
 		}
 	],
-	"resume": "/resume.pdf",
+	"resume": "https://qoymgkrt5whczoj1.public.blob.vercel-storage.com/resume.pdf",
 	"socials": {
-		"x": "#",
-		"github": "#",
-		"linkedin": "#"
+		"x": "https://x.com/TabibGhaith",
+		"github": "https://github.com/Ghaith00",
+		"linkedin": "https://www.linkedin.com/in/ghaith-tabib-667a2a109/"
 	},
 	"footerLinks": [
 		{
@@ -37,5 +37,5 @@
 		}
 	],
 	"address": "Paris, France",
-	"email": "contact@gmail.com"
+	"email": "contact@ghaith-tabib.com"
 }
