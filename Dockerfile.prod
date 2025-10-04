@@ -1,22 +1,37 @@
-# syntax=docker/dockerfile:1
-
-FROM node:22-alpine AS deps
+FROM node:22-slim AS base
 WORKDIR /app
-ENV NODE_ENV=production
-RUN corepack enable
-COPY package*.json ./
+
+FROM base AS deps
+RUN apt-get update && apt-get install -y --no-install-recommends openssl \
+  && rm -rf /var/lib/apt/lists/*
+COPY package.json package-lock.json* ./
 RUN npm ci
 
-FROM node:22-alpine AS builder
-WORKDIR /app
+FROM base AS builder
 ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
-FROM node:22-alpine AS runtime
+FROM base AS proddeps
+COPY package.json package-lock.json* ./
+
+RUN npm ci --omit=dev
+
+FROM node:20-slim AS runner
+ENV NODE_ENV=production
 WORKDIR /app
-ENV NODE_ENV=production PORT=3000
-USER node
+RUN groupadd -g 1001 nodejs && useradd -u 1001 -g nodejs nodejs
+
+# Copy production node_modules and runtime files
+COPY --from=proddeps /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/src/emails ./src/emails
+
+ENV PORT=3000
 EXPOSE 3000
-CMD ["npm","run", "start"]
+USER nodejs
+CMD ["npx", "next", "start", "-p", "3000"]
