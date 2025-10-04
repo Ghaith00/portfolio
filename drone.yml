@@ -1,0 +1,39 @@
+kind: pipeline
+type: docker
+name: build-and-deploy
+
+trigger:
+  branch: [ main ]
+  event:  [ push ]
+
+steps:
+  - name: build-image
+    image: docker:27-cli
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - sudo docker build -f Dockerfile.prod -t ghaith00/portfolio:latest .
+
+  - name: deploy
+    image: docker:27-cli
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+      - name: portfolio_dir
+        path: /home/ubuntu/portfolio          # mount host dir into the step
+    commands:
+      - sudo su
+      - cd /home/ubuntu/portfolio
+      - docker compose version
+      - docker compose down || true
+      - docker compose up -d --build
+      - docker image prune -f || true
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock
+  - name: portfolio_dir
+    host:
+      path: /home/ubuntu/portfolio
