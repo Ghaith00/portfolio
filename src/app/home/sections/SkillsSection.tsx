@@ -1,4 +1,4 @@
-import { CiSettings } from "react-icons/ci"
+import { CiSettings } from "react-icons/ci";
 import { SkillContent } from "../types";
 import { Icon } from "@/components/DynamicIcon";
 
@@ -21,30 +21,29 @@ export default function SkillsSection({ skill = [] }: { skill?: SkillContent[] }
                     return (
                         <div
                             key={g.title}
-                            className="rounded-2xl border border-gray-200 dark:border-gray-700 
-                         bg-white/70 dark:bg-zinc-900/40 backdrop-blur"
+                            className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/70 p-px shadow-sm transition hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-900/10 dark:border-gray-700 dark:bg-zinc-900/40 dark:hover:shadow-black/30"
                         >
-                            <summary
-                                className="list-none px-5 py-3 md:py-4 flex items-center justify-between font-medium"
-                            >
+                            <div className="rounded-[16px] bg-white/90 px-5 py-4 md:py-5 dark:bg-zinc-950/60">
+                                <div className="flex items-center justify-between font-medium">
                                 <span className="flex items-center gap-2">
-                                    <Icon name={g.icon} className="shrink-0" />
+                                    <Icon name={g.icon} className={`text-xl ${g.color}`} />
                                     {g.title}
                                 </span>
                                 <span className="text-sm opacity-60">({g.items.length})</span>
-                            </summary>
+                                </div>
 
-                            <div className="px-5 pb-4">
-                                <ul className="flex flex-wrap gap-2">
-                                    {g.items.map((item) => (
-                                        <li
-                                            key={item}
-                                            className="text-xs md:text-sm rounded-full border border-gray-200 dark:border-gray-700 px-2.5 py-1.5 bg-white/60 dark:bg-zinc-900/40"
-                                        >
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div className="mt-4">
+                                    <ul className="flex flex-wrap gap-2">
+                                        {g.items.map((item) => (
+                                            <li
+                                                key={item}
+                                                className="text-xs md:text-sm inline-flex items-center rounded-full border border-gray-200 bg-white/70 px-2.5 py-1.5 font-medium text-gray-700 transition group-hover:border-gray-300 dark:border-gray-700 dark:bg-zinc-900/50 dark:text-zinc-200 dark:group-hover:border-zinc-600"
+                                            >
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     );
