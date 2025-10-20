@@ -1,5 +1,5 @@
 "use client";
-import { useId, useState, KeyboardEvent } from "react";
+import { useEffect, useId, useState, KeyboardEvent } from "react";
 import { FaStarOfLife } from "react-icons/fa";
 import Image from "next/image";
 import { ExperienceContent } from "../types";
@@ -7,12 +7,21 @@ import { ExperienceContent } from "../types";
 
 export default function ExperienceSection({ experience = [] }: { experience?: ExperienceContent[] }) {
     const [active, setActive] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
     const baseId = useId();
 
     const onKey = (e: KeyboardEvent<HTMLDivElement>) => {
+        if (!experience.length) return;
         if (e.key === "ArrowDown") setActive((i) => (i + 1) % experience.length);
         if (e.key === "ArrowUp") setActive((i) => (i - 1 + experience.length) % experience.length);
     };
+
+    useEffect(() => {
+        if (!experience.length) return;
+        setIsTransitioning(true);
+        const timeout = window.setTimeout(() => setIsTransitioning(false), 220);
+        return () => window.clearTimeout(timeout);
+    }, [active, experience.length]);
 
     return (
         <section aria-labelledby={`${baseId}-heading`} className="w-full">
@@ -27,7 +36,7 @@ export default function ExperienceSection({ experience = [] }: { experience?: Ex
                 Here&apos;s my professional journey so far.
             </p>
 
-            <div className="mt-5 grid gap-6 md:grid-cols-[240px_1fr]">
+            <div className="mt-5 grid gap-6 md:grid-cols-[240px_1fr] items-start md:items-stretch">
                 {/* LEFT: vertical menu */}
                 <div
                     role="tablist"
@@ -45,7 +54,7 @@ export default function ExperienceSection({ experience = [] }: { experience?: Ex
                                 aria-controls={`${baseId}-panel-${i}`}
                                 id={`${baseId}-tab-${i}`}
                                 onClick={() => setActive(i)}
-                                className={`w-full flex items-center gap-3 text-left px-3 py-2 rounded-lg text-sm transition mb-1
+                                className={`w-full cursor-pointer flex items-center gap-3 text-left px-3 py-3 rounded-lg text-sm transition mb-1 min-h-[58px]
                                     ${selected
                                         ? "bg-zinc-200 dark:bg-zinc-700 font-semibold"
                                         : "hover:bg-zinc-100 dark:hover:bg-zinc-800"}`}
@@ -64,7 +73,9 @@ export default function ExperienceSection({ experience = [] }: { experience?: Ex
                     role="tabpanel"
                     id={`${baseId}-panel-${active}`}
                     aria-labelledby={`${baseId}-tab-${active}`}
-                    className="rounded-2xl border border-gray-200 dark:border-gray-700 p-5 bg-white/70 dark:bg-zinc-900/40 backdrop-blur"
+                    className={`rounded-2xl border border-gray-200 dark:border-gray-700 p-5 bg-white/70 dark:bg-zinc-900/40 backdrop-blur min-h-[440px] transition-all duration-300 ease-out ${
+                        isTransitioning ? "opacity-0 translate-y-1" : "opacity-100 translate-y-0"
+                    }`}
                 >
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
                         <p className="text-lg font-semibold">

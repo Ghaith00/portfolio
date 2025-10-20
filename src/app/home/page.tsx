@@ -49,14 +49,13 @@ export default async function HomePage({ site }: { site?: SiteData } = {}) {
 					helper: "Partnered with globally"
 				}
 			: null,
-		
-		resolvedSite.address
+		totalTools
 			? {
-					label: "Based in",
-					value: resolvedSite.address,
-					helper: "Remote-friendly & flexible"
+					label: "Tools in play",
+					value: `${totalTools}`,
+					helper: "Technologies delivered with"
 				}
-			: null
+			: null,
 	].filter(Boolean) as {
 		label: string;
 		value: string;
@@ -70,7 +69,7 @@ export default async function HomePage({ site }: { site?: SiteData } = {}) {
 	).slice(0, 3);
 	return (
 		<div className="space-y-20">
-			<section className="relative bg-white/80 shadow-xl shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-800/60 dark:bg-zinc-950/40 dark:shadow-black/30">
+			<section className="relative bg-white/80 backdrop-blur-xl dark:border-zinc-800/60 dark:bg-zinc-950/40 dark:shadow-black/30">
 				<div className="pointer-events-none absolute inset-0 -z-10">
 					<div className="absolute -left-10 top-[-35%] h-72 w-72 rounded-full bg-gradient-to-br from-indigo-400/40 via-transparent to-transparent blur-3xl dark:from-indigo-500/30" />
 					<div className="absolute bottom-[-40%] right-[-20%] h-80 w-80 rounded-full bg-gradient-to-tr from-amber-300/40 via-transparent to-transparent blur-3xl dark:from-amber-400/25" />
@@ -101,7 +100,7 @@ export default async function HomePage({ site }: { site?: SiteData } = {}) {
 									className={`inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
 										index === 0
 											? "bg-zinc-900 text-white hover:bg-zinc-800 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
-											: "border border-zinc-300/80 bg-white/70 text-zinc-700 hover:border-zinc-400 hover:text-zinc-900 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:border-zinc-700/70 dark:bg-transparent dark:text-zinc-200 dark:hover:border-zinc-500"
+											: "border border-zinc-300/80 bg-white/70 text-zinc-700 hover:border-zinc-400 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:border-zinc-700/70 dark:bg-transparent dark:text-zinc-200 dark:hover:border-zinc-500"
 									}`}
 								>
 									{button.label}
@@ -112,7 +111,7 @@ export default async function HomePage({ site }: { site?: SiteData } = {}) {
 									href={resolvedSite.resume}
 									target="_blank"
 									rel="noreferrer noopener"
-									className="inline-flex items-center gap-2 rounded-full border border-zinc-300/80 bg-white/70 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-all hover:border-zinc-400 hover:text-zinc-900 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:border-zinc-700/70 dark:bg-transparent dark:text-zinc-200 dark:hover:border-zinc-500"
+									className="inline-flex items-center gap-2 rounded-full border border-zinc-300/80 bg-white/70 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-all hover:border-zinc-400 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:border-zinc-700/70 dark:bg-transparent dark:text-zinc-200 dark:hover:border-zinc-500"
 								>
 									<FiDownload className="text-base" />
 									Resume
@@ -143,7 +142,7 @@ export default async function HomePage({ site }: { site?: SiteData } = {}) {
 								{metrics.map((metric) => (
 									<div
 										key={metric.label}
-										className="rounded-2xl border border-zinc-200/80 bg-white/75 px-4 py-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-900/10 dark:border-zinc-700/70 dark:bg-zinc-900/40 dark:hover:shadow-black/30"
+										className="rounded-2xl border border-zinc-200/80 bg-white/75 px-4 py-4 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-900/10 dark:border-zinc-700/70 dark:bg-zinc-900/40 dark:hover:shadow-black/30"
 									>
 										<p className="text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-400">
 											{metric.label}
