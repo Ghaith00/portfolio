@@ -4,3 +4,33 @@
 
 .prose pre { @apply border-0 rounded-lg p-4 bg-zinc-100 text-zinc-800; }
 .dark .prose pre { @apply bg-zinc-900 text-zinc-100; }
+
+@keyframes page-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+main > * {
+	animation: page-fade-in 0.32s ease-out;
+}
+
+.site-navbar {
+	animation: page-fade-in 0.32s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	main > * {
+		animation: none;
+	}
+
+	.site-navbar {
+		animation: none;
+	}
+}

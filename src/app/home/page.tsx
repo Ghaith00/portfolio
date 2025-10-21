@@ -67,6 +67,7 @@ export default async function HomePage({ site }: { site?: SiteData } = {}) {
 			(content.skills ?? []).flatMap((group) => group.items)
 		)
 	).slice(0, 3);
+
 	return (
 		<div className="space-y-20">
 			<section className="relative bg-white/80 backdrop-blur-xl dark:border-zinc-800/60 dark:bg-zinc-950/40 dark:shadow-black/30">

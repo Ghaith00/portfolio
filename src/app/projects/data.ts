@@ -2,7 +2,7 @@ import { GithubRepoList } from "./types";
 
 
 export async function getRepos(username: string) {
-	const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=30&sort=updated`, {
+	const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=30&sort=pushed`, {
 		next: { revalidate: 3600 },
 		headers: {
 			Accept: "application/vnd.github+json",

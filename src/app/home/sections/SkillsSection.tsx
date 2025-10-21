@@ -21,7 +21,7 @@ export default function SkillsSection({ skill = [] }: { skill?: SkillContent[] }
                     return (
                         <div
                             key={g.title}
-                            className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/70 p-px shadow-sm transition hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-900/10 dark:border-gray-700 dark:bg-zinc-900/40 dark:hover:shadow-black/30"
+                            className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/70 p-px transition hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-900/10 dark:border-gray-700 dark:bg-zinc-900/40 dark:hover:shadow-black/30"
                         >
                             <div className="rounded-[16px] bg-white/90 px-5 py-4 md:py-5 dark:bg-zinc-950/60">
                                 <div className="flex items-center justify-between font-medium">
